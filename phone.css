@@ -13,7 +13,7 @@ body {
 .deck-picker select { width: min(58vw, 220px); max-width: 58vw; padding: 11px 27px 11px 9px; font-size: 12px; }
 .study { padding: 10px; border-radius: 16px; }
 .deck-meta { margin-bottom: 10px; font-size: 9px; letter-spacing: .07em; }
-.flashcard { height: clamp(380px, 64svh, 500px); min-height: 380px; }
+.flashcard { height: clamp(380px, 64svh, 500px); min-height: 380px; touch-action: pan-y pinch-zoom; }
 .face { padding: 22px 13px 28px; border-radius: 13px; }
 .gaelic-word { max-width: 100%; margin: 20px 0; font-size: clamp(40px, 12vw, 64px); line-height: .96; }
 .english-word { margin: 12px 0 10px; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; }

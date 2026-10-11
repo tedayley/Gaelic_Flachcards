@@ -116,6 +116,26 @@
     render();
   }
 
+  let swipeStart = null;
+  let suppressCardClick = false;
+
+  els.card.addEventListener("pointerdown", event => {
+    if (event.pointerType !== "touch" || !event.isPrimary) return;
+    swipeStart = { x: event.clientX, y: event.clientY };
+  });
+  els.card.addEventListener("pointerup", event => {
+    if (!swipeStart) return;
+    const deltaX = event.clientX - swipeStart.x;
+    const deltaY = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY) * 1.25) return;
+    suppressCardClick = true;
+    move(deltaX < 0 ? 1 : -1);
+  });
+  els.card.addEventListener("pointercancel", () => {
+    swipeStart = null;
+  });
+
   function shuffle() {
     for (let i = shuffledCards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -133,7 +153,14 @@
     els.status.textContent = "Original order restored.";
   }
 
-  els.card.addEventListener("click", () => flip());
+  els.card.addEventListener("click", event => {
+    if (suppressCardClick) {
+      event.preventDefault();
+      suppressCardClick = false;
+      return;
+    }
+    flip();
+  });
   els.flip.addEventListener("click", () => flip());
   els.previous.addEventListener("click", () => move(-1));
   els.next.addEventListener("click", () => move(1));
