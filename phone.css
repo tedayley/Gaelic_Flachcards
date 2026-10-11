@@ -15,6 +15,7 @@ body {
 .deck-meta { margin-bottom: 10px; font-size: 9px; letter-spacing: .07em; }
 .flashcard { height: clamp(380px, 64svh, 500px); min-height: 380px; touch-action: pan-y pinch-zoom; }
 .face { padding: 22px 13px 28px; border-radius: 13px; }
+.hint { color: #a9b6ce; font-size: 13px; }
 .gaelic-word { max-width: 100%; margin: 20px 0; font-size: clamp(40px, 12vw, 64px); line-height: .96; }
 .english-word { margin: 12px 0 10px; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; }
 .category-chip { font-size: 9px; }
@@ -27,6 +28,7 @@ body {
 .progress { gap: 9px; margin-top: 13px; font-size: 9px; }
 .controls { grid-template-columns: 42px minmax(0,1fr) minmax(0,1fr) 42px; gap: 6px; margin-top: 13px; }
 .controls button { min-height: 44px; padding: 8px 4px; border-radius: 9px; font-size: 11px; touch-action: manipulation; }
+.controls .flip-button { min-height: 50px; font-size: 13px; }
 .nav-button { font-size: 19px !important; }
 .search { gap: 8px; margin-top: 13px; padding: 12px 10px; }
 .search input { font-size: 16px; } /* Prevents iOS Safari zoom on focus. */

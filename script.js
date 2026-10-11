@@ -117,7 +117,7 @@
   }
 
   let swipeStart = null;
-  let suppressCardClick = false;
+  let suppressCardClickUntil = 0;
 
   els.card.addEventListener("pointerdown", event => {
     if (event.pointerType !== "touch" || !event.isPrimary) return;
@@ -129,7 +129,7 @@
     const deltaY = event.clientY - swipeStart.y;
     swipeStart = null;
     if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY) * 1.25) return;
-    suppressCardClick = true;
+    suppressCardClickUntil = Date.now() + 150;
     move(deltaX < 0 ? 1 : -1);
   });
   els.card.addEventListener("pointercancel", () => {
@@ -154,9 +154,9 @@
   }
 
   els.card.addEventListener("click", event => {
-    if (suppressCardClick) {
+    if (Date.now() < suppressCardClickUntil) {
       event.preventDefault();
-      suppressCardClick = false;
+      suppressCardClickUntil = 0;
       return;
     }
     flip();
