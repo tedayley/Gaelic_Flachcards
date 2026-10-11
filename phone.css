@@ -1,0 +1,48 @@
+/* Phone-first overrides: loaded only on narrow screens. */
+* { -webkit-tap-highlight-color: transparent; }
+body {
+  min-height: 100svh;
+  align-items: flex-start;
+  padding: 10px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+.app { width: 100%; max-width: 520px; margin: 4px auto 12px; }
+.topbar { gap: 8px; margin-bottom: 12px; }
+.brand { font-size: 13px; letter-spacing: .13em; }
+.deck-picker { min-width: 0; }
+.deck-picker select { width: min(58vw, 220px); max-width: 58vw; padding: 11px 27px 11px 9px; font-size: 12px; }
+.study { padding: 10px; border-radius: 16px; }
+.deck-meta { margin-bottom: 10px; font-size: 9px; letter-spacing: .07em; }
+.flashcard { height: clamp(380px, 64svh, 500px); min-height: 380px; }
+.face { padding: 22px 13px 28px; border-radius: 13px; }
+.gaelic-word { max-width: 100%; margin: 20px 0; font-size: clamp(40px, 12vw, 64px); line-height: .96; }
+.english-word { margin: 12px 0 10px; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; }
+.category-chip { font-size: 9px; }
+.related-label { display: none; }
+.related-words { display: flex; flex-direction: column; gap: 7px; width: 100%; max-width: 100%; max-height: 160px; overflow-y: auto; margin-top: 10px; font-size: 13px; line-height: 1.4; }
+.related-item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; align-items: center; width: 100%; padding: 8px 10px; border: 1px solid rgba(255,79,216,.22); border-radius: 8px; background: rgba(255,79,216,.045); text-align: left; overflow-wrap: anywhere; }
+.related-gaelic { color: var(--cyan); font-size: 13px; font-weight: 800; }
+.related-english { color: #e8d9ef; font-size: 13px; }
+.note { max-width: 100%; margin-top: 7px; font-size: 9px; line-height: 1.35; }
+.progress { gap: 9px; margin-top: 13px; font-size: 9px; }
+.controls { grid-template-columns: 42px minmax(0,1fr) minmax(0,1fr) 42px; gap: 6px; margin-top: 13px; }
+.controls button { min-height: 44px; padding: 8px 4px; border-radius: 9px; font-size: 11px; touch-action: manipulation; }
+.nav-button { font-size: 19px !important; }
+.search { gap: 8px; margin-top: 13px; padding: 12px 10px; }
+.search input { font-size: 16px; } /* Prevents iOS Safari zoom on focus. */
+.search button { min-width: 28px; min-height: 28px; }
+.status { margin-top: 6px; }
+.keyboard-help { display: none; }
+footer { margin-top: 12px; font-size: 8px; line-height: 1.5; }
+@media (max-width: 360px) {
+  body { padding: 7px; }
+  .study { padding: 8px; }
+  .deck-meta { font-size: 8px; }
+  .flashcard { height: 310px; }
+  .face { padding-inline: 9px; }
+  .related-item { max-width: 100%; }
+  .controls { grid-template-columns: 38px minmax(0,1fr) minmax(0,1fr) 38px; gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flashcard { transition: none; }
+}
