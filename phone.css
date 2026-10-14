@@ -7,16 +7,20 @@ body {
   padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 .app { width: 100%; max-width: 520px; margin: 4px auto 12px; }
-.topbar { gap: 8px; margin-bottom: 12px; }
+.topbar { gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
 .brand { font-size: 13px; letter-spacing: .13em; }
 .deck-picker { min-width: 0; }
 .deck-picker select { width: min(58vw, 220px); max-width: 58vw; padding: 11px 27px 11px 9px; font-size: 12px; }
+.level-menu { margin-left: auto; }
+.level-menu summary { padding: 11px 9px; font-size: 11px; }
+.level-menu fieldset { right: 0; width: min(275px, calc(100vw - 24px)); min-width: 0; max-height: min(60svh, 360px); grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .study { padding: 10px; border-radius: 16px; }
 .deck-meta { margin-bottom: 10px; font-size: 9px; letter-spacing: .07em; }
 .flashcard { height: clamp(380px, 64svh, 500px); min-height: 380px; touch-action: pan-y pinch-zoom; }
 .face { padding: 22px 13px 28px; border-radius: 13px; }
 .hint { color: #a9b6ce; font-size: 13px; }
 .gaelic-word { max-width: 100%; margin: 20px 0; font-size: clamp(40px, 12vw, 64px); line-height: .96; }
+.pronunciation { margin: -11px 0 17px; font-size: 11px; }
 .english-word { margin: 12px 0 10px; font-size: clamp(26px, 7vw, 38px); line-height: 1.1; }
 .category-chip { font-size: 9px; }
 .related-label { display: none; }
@@ -35,6 +39,16 @@ body {
 .search button { min-width: 28px; min-height: 28px; }
 .status { margin-top: 6px; }
 .keyboard-help { display: none; }
+.quiz-entry { align-items: flex-start; flex-direction: column; gap: 10px; margin-top: 16px; }
+.quiz-entry button { width: 100%; }
+.quiz-dialog { width: calc(100% - 20px); max-height: 92svh; border-radius: 14px; }
+.quiz-panel { padding: 18px 14px; }
+.quiz-header { margin-bottom: 18px; }
+.quiz-header h2 { font-size: 22px; }
+.quiz-gaelic { font-size: clamp(34px, 10vw, 48px); }
+.quiz-choices { grid-template-columns: 1fr; gap: 7px; }
+.quiz-choice { min-height: 48px; }
+.quiz-score { font-size: 56px; }
 footer { margin-top: 12px; font-size: 8px; line-height: 1.5; }
 @media (max-width: 360px) {
   body { padding: 7px; }
